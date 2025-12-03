@@ -34,6 +34,9 @@ const vue_app = Vue.createApp({
             // This holds your movies.json data.
             movies: [],
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
+            title: "IS219 Gallery (Project 3)",
+            owner: "User319183",
+            github: "https://github.com/User319183/Movie-Poster-Gallery"
          
       }
     },
