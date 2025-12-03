@@ -34,26 +34,24 @@
 
 	      <div class="row">
 
-	        <div class="col-md-6">
+	        <div class="col-md-6" v-for="movie in movies" :key="movie.title">
 	            <div class="thumbnail">
 
-						<img class="poster img-fluid" :src="movies[0].posters[movies[0].posterindex]" alt="Movie Poster" />
-						<div class="imageInfo">Poster #{{ movies[0].posterindex }}</div>
+					<img class="poster img-fluid" :src="movie.posters[movie.posterindex]" :alt="movie.title" />
+					<div class="imageInfo">Poster #{{ movie.posterindex }}</div>
 
-						<p class="title">{{ movies[0].title }} ({{ movies[0].country }})</p>
-						<p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movies[0].iscore }} </p>
-						<p class="runtime">Runtime: {{ movies[0].runtime }}</p>
-						<p class="released">Released: {{ movies[0].released[0] }}-{{ movies[0].released[1] }}-{{ movies[0].released[2] }} | Rated: {{ movies[0].rating }}</p>
-						<p class="websites">Websites: <a :href="movies[0].imdb" target="_blank">imdb</a> | <a :href="movies[0].website" target="_blank">website</a></p>
+					<p class="title">{{ movie.title }} ({{ movie.country }})</p>
+					<p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movie.iscore }} </p>
+					<p class="runtime">Runtime: {{ movie.runtime }}</p>
+					<p class="released">Released: {{ movie.released.join('-') }} | Rated: {{ movie.rating }}</p>
+					<p class="websites">Websites: <a :href="movie.imdb" target="_blank">imdb</a> | <a :href="movie.website" target="_blank">website</a></p>
 
-		            <div class="social">
-		              <p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movies[0].likes }}</p>
-		              <p class="dislikes"><i class="bi bi-hand-thumbs-down"></i> {{ movies[0].dislikes }}</p>
-		            </div>
+	            <div class="social">
+	              <p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}</p>
+	              <p class="dislikes"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes }}</p>
 	            </div>
-	        </div>
-
-	      </div>
+	            </div>
+	        </div>	      </div>
 	    </div>
 
 	    <div class="footer">
