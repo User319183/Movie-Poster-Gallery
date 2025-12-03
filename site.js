@@ -42,6 +42,26 @@ const vue_app = Vue.createApp({
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
+            makeTextDate(dateArray) {
+                  return dateArray.join('-')
+            },
+            like(index) {
+                  this.movies[index].likes++
+            },
+            dislike(index) {
+                  this.movies[index].dislikes++
+            },
+            posterClick(index) {
+                  this.movies[index].posterindex++
+                  if (this.movies[index].posterindex >= this.movies[index].posters.length) {
+                        this.movies[index].posterindex = 0
+                  }
+            },
+            timeText(minutes) {
+                  let hours = Math.floor(minutes / 60)
+                  let mins = minutes % 60
+                  return hours + 'h ' + mins + 'm'
+            }
       }
 })
 
