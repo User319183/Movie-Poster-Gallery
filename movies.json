@@ -68,5 +68,47 @@
             "likes": 812,
             "dislikes": 101,
             "posterindex": 0
+      },
+      {
+            "title": "Dune: Part Two",
+            "iscore": 8.6,
+            "rating": "PG-13",
+            "runtime": 166,
+            "released": [2024, 3, 1],
+            "country": "USA",
+            "posters": ["img/dune2.jpg"],
+            "imdb": "http://www.imdb.com/title/tt15239678",
+            "website": "https://www.dunemovie.com",
+            "likes": 945,
+            "dislikes": 87,
+            "posterindex": 0
+      },
+      {
+            "title": "Mission: Impossible - The Final Reckoning",
+            "iscore": 8.4,
+            "rating": "PG-13",
+            "runtime": 163,
+            "released": [2025, 5, 23],
+            "country": "USA",
+            "posters": ["img/mi8.jpg"],
+            "imdb": "http://www.imdb.com/title/tt9603212",
+            "website": "https://www.missionimpossible.com",
+            "likes": 876,
+            "dislikes": 93,
+            "posterindex": 0
+      },
+      {
+            "title": "Mickey 17",
+            "iscore": 8.2,
+            "rating": "R",
+            "runtime": 150,
+            "released": [2025, 1, 31],
+            "country": "USA",
+            "posters": ["img/mickey17.jpg"],
+            "imdb": "http://www.imdb.com/title/tt23137390",
+            "website": "https://www.warnerbros.com/movies/mickey-17",
+            "likes": 768,
+            "dislikes": 112,
+            "posterindex": 0
       }
 ]
