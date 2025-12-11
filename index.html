@@ -1,77 +1,77 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> <!-- Declare HTML5 document type -->
+<html> <!-- Root HTML element -->
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<head> <!-- Head section containing metadata and resources -->
+	<meta charset="utf-8"> <!-- Set character encoding to UTF-8 for proper text rendering -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Configure responsive viewport for mobile devices -->
 
-	<title>IS219 Gallery (Project 3)</title>
+	<title>IS219 Gallery (Project 3)</title> <!-- Set page title displayed in browser tab -->
 
 	<!-- Our CSS File along with Boostrap, and Bootstrap Icon Styles-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	<link rel="stylesheet" type='text/css' href="style.css" />
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> <!-- Import Bootstrap CSS framework from CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- Import Bootstrap Icons font library -->
+	<link rel="stylesheet" type='text/css' href="style.css" /> <!-- Link to custom CSS stylesheet -->
 
 	<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
 
 	<!-- Javascript Framework (e.g., vue.js) (ADD HERE) -->
 
-	<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> <!-- Import Vue.js 3 production build from CDN -->
 
-</head>
+</head> <!-- Close head section -->
 
-<body>
-	<div id="vue_app" class="container">
+<body> <!-- Begin body section containing visible page content -->
+	<div id="vue_app" class="container"> <!-- Main Vue app container with Bootstrap container class -->
 
-		<div class="header">
+		<div class="header"> <!-- Header section for page title -->
 
-			<div class="container">
-				<h1 id="app_title">{{ title }}</h1>
-			</div>
+			<div class="container"> <!-- Inner container for header content -->
+				<h1 id="app_title">{{ title }}</h1> <!-- Display dynamic title from Vue data -->
+			</div> <!-- Close inner container -->
 
-		</div>
+		</div> <!-- Close header section -->
 
-		<div class="main" v-if="movies.length">
+		<div class="main" v-if="movies.length"> <!-- Main content area, only display if movies array has items -->
 
-			<div class="row">
+			<div class="row"> <!-- Bootstrap grid row for movie cards -->
 
-			<div class="col-md-6" v-for="(movie, index) in movies" :key="movie.title">
-				<div class="thumbnail">
+			<div class="col-md-6" v-for="(movie, index) in movies" :key="movie.title"> <!-- Loop through movies array, create column for each movie -->
+				<div class="thumbnail"> <!-- Container for individual movie card -->
 
-				<img class="poster img-fluid" :src="movie.posters[movie.posterindex]" :alt="movie.title" @click="posterClick(index)" />
-				<div class="imageInfo">{{ movie.posterindex + 1 }} of {{ movie.posters.length }}</div>
+				<img class="poster img-fluid" :src="movie.posters[movie.posterindex]" :alt="movie.title" @click="posterClick(index)" /> <!-- Display movie poster image, cycles through posters on click -->
+				<div class="imageInfo">{{ movie.posterindex + 1 }} of {{ movie.posters.length }}</div> <!-- Show current poster number out of total posters -->
 
-				<p class="title">{{ movie.title }} ({{ movie.country }})</p>
-					<p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movie.iscore }} </p>
-					<p class="runtime">Runtime: {{ movie.runtime }}</p>
-					<p class="released">Released: {{ movie.released.join('-') }} | Rated: {{ movie.rating }}</p>
+				<p class="title">{{ movie.title }} ({{ movie.country }})</p> <!-- Display movie title and country -->
+					<p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movie.iscore }} </p> <!-- Display IMDB score with star icon -->
+					<p class="runtime">Runtime: {{ movie.runtime }}</p> <!-- Display movie runtime -->
+					<p class="released">Released: {{ movie.released.join('-') }} | Rated: {{ movie.rating }}</p> <!-- Display release date and MPAA rating -->
 					<p class="websites">Websites: <a :href="movie.imdb" target="_blank">imdb</a> | <a
-							:href="movie.website" target="_blank">website</a></p>
+							:href="movie.website" target="_blank">website</a></p> <!-- Links to IMDB and official website, open in new tab -->
 
-					<div class="social">
+					<div class="social"> <!-- Social interaction buttons container -->
 						<p class="likes" @click="like(index)"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}
-						</p>
-						<p class="dislikes" @click="dislike(index)"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes }}</p>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
+						</p> <!-- Like button with thumbs up icon, increments likes on click -->
+						<p class="dislikes" @click="dislike(index)"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes }}</p> <!-- Dislike button with thumbs down icon, increments dislikes on click -->
+					</div> <!-- Close social buttons container -->
+				</div> <!-- Close thumbnail card -->
+			</div> <!-- Close column -->
+			</div> <!-- Close row -->
+		</div> <!-- Close main content section -->
 
-		<div class="footer">
-			<div class="container">
-				<a id="github" class="btn btn-lg btn-warning" :href="github">
-					<i class="bi bi-github me-2"></i>{{ owner }}
-				</a>
-			</div>
-		</div>
-	</div>
+		<div class="footer"> <!-- Footer section -->
+			<div class="container"> <!-- Container for footer content -->
+				<a id="github" class="btn btn-lg btn-warning" :href="github"> <!-- GitHub link button with dynamic URL -->
+					<i class="bi bi-github me-2"></i>{{ owner }} <!-- GitHub icon and owner name -->
+				</a> <!-- Close GitHub link -->
+			</div> <!-- Close footer container -->
+		</div> <!-- Close footer section -->
+	</div> <!-- Close main Vue app container -->
 
 	<!-- This load the Vue.js code -->
-	<script type="text/javascript" src="site.js"></script>
+	<script type="text/javascript" src="site.js"></script> <!-- Import custom JavaScript file containing Vue app logic -->
 
 
-</body>
+</body> <!-- Close body section -->
 
-</html>
+</html> <!-- Close root HTML element -->
